@@ -1,0 +1,65 @@
+﻿@using SpotifyAPI.Web
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model HomeViewModel
+
+<table class="table" id="myTable">
+    
+<nav aria-label="Page navigation example">
+    @Model.Pagination.TotalItems Artistes en tout
+  <ul class="pagination">
+    @if(Model.Pagination.CurrentPage != 1){
+                <li class="page-item"><a class="page-link" href="@(Model.Pagination.CurrentPage-1)">&lt;&lt;</a></li>
+                <li class="page-item"><a class="page-link" href="/1">1</a></li>
+            }
+            @foreach (var i in Model.Pagination.Pages)
+    {
+        <li class="page-item"><a class="page-link" href="/@i">@i</a></li>
+    }
+    @if(Model.Pagination.CurrentPage != @Model.Pagination.EndPage){
+                <li class="page-item"><a class="page-link" href="/@Model.Pagination.TotalPages">@Model.Pagination.TotalPages</a></li>
+                <li class="page-item"><a class="page-link" href="/@(Model.Pagination.CurrentPage+1)">&gt;&gt;</a></li>
+            }
+        </ul>
+</nav>
+<form method="get" action="/">
+    <input type="text" name="nameArtist" />
+    <input type="submit" value="Rechercher" />
+</form>
+    <thead>
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Popularité</th>
+          <th scope="col">Lien</th>
+          <th scope="col">Image</th>
+          <th scope="col">Albums</th>
+        </tr>
+  </thead>
+@foreach (var item in Model.Artists)
+    {
+    <tr>
+        <td>@item.Name</td>
+        <td>@item.Popularity</td>
+        <td><a href="@String.Concat("https://open.spotify.com/artist/", item.Id)">lien</a></td>
+        @if (item.Images != null && item.Images.Count > 0)
+        {
+            var image = item.Images.Last();
+
+            <td><img src="@image.Url" width="200" height="200" /></td>
+        }
+        <td>
+            <table>
+                @foreach (var album in item.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single"))
+               {
+                    <tr>
+                        <td><a href="https://open.spotify.com/album/@album.Id">@album.Name</a> - @album.TotalTracks titres</td>
+                    </tr>
+               }
+            </table>
+        </td>
+  </tr>       
+}
+</table>
+
+
