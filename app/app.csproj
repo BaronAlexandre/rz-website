@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="SpotifyAPI.Web" Version="6.3.0" />
+      <PackageReference Include="HtmlAgilityPack" Version="1.11.46" />
+      <PackageReference Include="Genius.NET" Version="4.0.1" />
   </ItemGroup>
 
 </Project>

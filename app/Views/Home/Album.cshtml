@@ -2,18 +2,22 @@
 @{
     ViewData["Title"] = "Album";
 }
-@model List<Track>
+@model Album
 
 <ul>
 
-@foreach (var item in Model)
+@foreach (var item in Model.Tracks)
 {
     TimeSpan t = TimeSpan.FromMilliseconds(item.DurationMs);
-    string answer = string.Format("{0:D2}m:{1:D2}s:{2:D3}ms",
+    string durationString = string.Format("{0:D2}m:{1:D2}s:{2:D3}ms",
                             t.Minutes, 
                             t.Seconds, 
                             t.Milliseconds);
-    <li><a href="https://open.spotify.com/track/@item.Id"></a>@item.Name - @answer</li>          
+    <li><a href="https://open.spotify.com/track/@item.Id"></a>@item.Name - @durationString 
+        @if(item.Text != null){
+             @Html.Raw("- <a href=/"+Model.Id+"/track/"+item.Id+">Paroles</a>")
+        }
+     </li>          
 }
 </ul>
 

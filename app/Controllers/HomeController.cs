@@ -2,6 +2,8 @@
 using app.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Genius;
+using HtmlAgilityPack;
 
 namespace app.Controllers
 {
@@ -50,12 +52,33 @@ namespace app.Controllers
             return View("Index", model);
         }
 
-        [Route("/album/{id}")]
-        public IActionResult Album(string id)
+        [Route("/{idArtist}/album/{idAlbum}")]
+        public IActionResult Album(string idArtist, string idAlbum)
         {
-            var album = DataService.Albums.FirstOrDefault(a => a.Id == id);
+            var album = DataService.Albums.FirstOrDefault(a => a.Id == idAlbum);
+            var genius = new GeniusClient("lK00bVSgu4CJpmnp8Db8Lo2K0mYrrjBM5Z66sc6PWbZUP1nkkC08YABXd_JFyh0c");
+            var artist = DataService.Artists.FirstOrDefault(a => a.Id == idArtist);
 
-            return View(album.Tracks);
+            foreach (var track in album.Tracks)
+            {
+                if (track.Text == null)
+                {
+                    var songsfind = genius.SearchClient.Search(track.Name + " by " + artist.Name).Result;
+                    var songfindUrl = songsfind.Response.Hits.FirstOrDefault();
+                    if (songfindUrl != null)
+                    {
+
+                        HtmlWeb web = new HtmlWeb();
+                        HtmlDocument doc = web.Load(songfindUrl.Result.Url);
+                        var headerNames = doc.DocumentNode.SelectNodes("//*[@id='lyrics-root']/div[2]");
+                        track.Text = System.Web.HttpUtility.HtmlDecode(headerNames.FirstOrDefault().InnerText);
+
+                    };
+                }
+            }
+            DataService.WriteToJsonFile("tracks.json", DataService.Albums);
+
+            return View(album);
         }
 
         [Route("/labels")]
@@ -63,6 +86,16 @@ namespace app.Controllers
         {
             return View(DataService.Labels);
         }
+
+
+        [Route("{idAlbum}/track/{idTrack}")]
+        public IActionResult Track(string idAlbum, string idTrack)
+        {
+            var album = DataService.Albums.FirstOrDefault(a => a.Id == idAlbum);
+            var track = album.Tracks.FirstOrDefault(t => t.Id == idTrack);
+            return View(track);
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

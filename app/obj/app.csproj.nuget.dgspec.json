@@ -45,6 +45,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Genius.NET": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
+            "HtmlAgilityPack": {
+              "target": "Package",
+              "version": "[1.11.46, )"
+            },
             "SpotifyAPI.Web": {
               "target": "Package",
               "version": "[6.3.0, )"

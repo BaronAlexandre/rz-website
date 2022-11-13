@@ -53,7 +53,7 @@
                 @foreach (var album in item.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single"))
                {
                     <tr>
-                        <td><a href="https://open.spotify.com/album/@album.Id">@album.Name</a> - @album.TotalTracks titres - <a href="/album/@album.Id">Detail</a></td>
+                        <td><a href="https://open.spotify.com/album/@album.Id">@album.Name</a> - @album.TotalTracks titres - <a href="/@item.Id/album/@album.Id">Detail</a></td>
                     </tr>
                }
             </table>
