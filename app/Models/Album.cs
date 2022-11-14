@@ -6,5 +6,6 @@ namespace app.Models
     {
         public string Id { get; set; }
         public List<Track> Tracks { get; set; }
+        public SuperArtists Artist { get; set; }
     }
 }

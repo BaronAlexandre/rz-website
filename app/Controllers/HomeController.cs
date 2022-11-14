@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Genius;
 using HtmlAgilityPack;
+using System.Net;
 
 namespace app.Controllers
 {
@@ -56,27 +57,7 @@ namespace app.Controllers
         public IActionResult Album(string idArtist, string idAlbum)
         {
             var album = DataService.Albums.FirstOrDefault(a => a.Id == idAlbum);
-            var genius = new GeniusClient("lK00bVSgu4CJpmnp8Db8Lo2K0mYrrjBM5Z66sc6PWbZUP1nkkC08YABXd_JFyh0c");
-            var artist = DataService.Artists.FirstOrDefault(a => a.Id == idArtist);
-
-            foreach (var track in album.Tracks)
-            {
-                if (track.Text == null)
-                {
-                    var songsfind = genius.SearchClient.Search(track.Name + " by " + artist.Name).Result;
-                    var songfindUrl = songsfind.Response.Hits.FirstOrDefault();
-                    if (songfindUrl != null)
-                    {
-
-                        HtmlWeb web = new HtmlWeb();
-                        HtmlDocument doc = web.Load(songfindUrl.Result.Url);
-                        var headerNames = doc.DocumentNode.SelectNodes("//*[@id='lyrics-root']/div[2]");
-                        track.Text = System.Web.HttpUtility.HtmlDecode(headerNames.FirstOrDefault().InnerText);
-
-                    };
-                }
-            }
-            DataService.WriteToJsonFile("tracks.json", DataService.Albums);
+            album.Artist = DataService.Artists.FirstOrDefault(a => a.Id == idArtist);
 
             return View(album);
         }
@@ -88,11 +69,29 @@ namespace app.Controllers
         }
 
 
-        [Route("{idAlbum}/track/{idTrack}")]
-        public IActionResult Track(string idAlbum, string idTrack)
+        [Route("{idArtist}/{idAlbum}/track/{idTrack}")]
+        public IActionResult Track(string idArtist, string idAlbum, string idTrack)
         {
+            var artist = DataService.Artists.FirstOrDefault(a => a.Id == idArtist);
             var album = DataService.Albums.FirstOrDefault(a => a.Id == idAlbum);
             var track = album.Tracks.FirstOrDefault(t => t.Id == idTrack);
+
+            var genius = new GeniusClient("lK00bVSgu4CJpmnp8Db8Lo2K0mYrrjBM5Z66sc6PWbZUP1nkkC08YABXd_JFyh0c");
+            var songsfind = genius.SearchClient.Search(track.Name + " by " + artist.Name).Result;
+            var songfindUrl = songsfind.Response.Hits.FirstOrDefault();
+            if (songfindUrl != null)
+            {
+                HtmlWeb web = new HtmlWeb();
+                HtmlDocument doc = web.Load(songfindUrl.Result.Url);
+                var headerNames = doc.DocumentNode.SelectNodes("//*[@id='lyrics-root']/div[2]");
+                track.Text = System.Web.HttpUtility.HtmlDecode(headerNames.FirstOrDefault().InnerText);
+                if (track.Text == null)
+                {
+                    Response.StatusCode = (int)HttpStatusCode.NotFound;
+                    return View();
+                }
+            };
+
             return View(track);
         }
 

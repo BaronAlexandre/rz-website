@@ -15,7 +15,7 @@
                             t.Milliseconds);
     <li><a href="https://open.spotify.com/track/@item.Id"></a>@item.Name - @durationString 
         @if(item.Text != null){
-             @Html.Raw("- <a href=/"+Model.Id+"/track/"+item.Id+">Paroles</a>")
+             @Html.Raw("- <a href=/"+Model.Artist.Id+"/"+Model.Id+"/track/"+item.Id+">Paroles</a>")
         }
      </li>          
 }

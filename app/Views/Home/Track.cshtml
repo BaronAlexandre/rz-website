@@ -2,7 +2,7 @@
 @using System.Text.RegularExpressions
 @{
     ViewData["Title"] = "Track";
-    var lines =  Regex.Split(Model.Text, @"(?<!^)(?=[A-Z])");
+    var lines =  Regex.Split(Model.Text, @"(?=\[[A-Z])");
 
 }
 @model Track
@@ -10,13 +10,5 @@
 
 @foreach (var item in lines)
 {
-    if (Regex.Match(item, @"\.*?\]").Success)
-    {
-        <br/>
-    }
-    <p style="margin: 0">@item</p>
-    if (Regex.Match(item, @"\.*?\]").Success)
-    {
-        <br/>
-    }
+    <p style="margin: 0">@Html.Raw(item)</p>
 }
