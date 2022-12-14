@@ -1,14 +1,13 @@
 ﻿@using SpotifyAPI.Web
 @using System.Text.RegularExpressions
-@{
-    ViewData["Title"] = "Track";
-    var lines =  Regex.Split(Model.Text, @"(?=\[[A-Z])");
 
-}
 @model Track
-
+@{
+	ViewData["Title"] = "Track";
+	var lines = Regex.Split(Model.Text, @"(?=\[[A-Z])");
+}
 
 @foreach (var item in lines)
 {
-    <p style="margin: 0">@Html.Raw(item)</p>
+	<p>@Html.Raw(item)</p>
 }

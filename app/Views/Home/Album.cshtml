@@ -1,24 +1,23 @@
 ﻿@using SpotifyAPI.Web
 @{
-    ViewData["Title"] = "Album";
+	ViewData["Title"] = "Album";
 }
 @model Album
 
 <ul>
 
-@foreach (var item in Model.Tracks)
-{
-    TimeSpan t = TimeSpan.FromMilliseconds(item.DurationMs);
-    string durationString = string.Format("{0:D2}m:{1:D2}s:{2:D3}ms",
-                            t.Minutes, 
-                            t.Seconds, 
-                            t.Milliseconds);
-    <li><a href="https://open.spotify.com/track/@item.Id"></a>@item.Name - @durationString 
-        @if(item.Text != null){
-             @Html.Raw("- <a href=/"+Model.Artist.Id+"/"+Model.Id+"/track/"+item.Id+">Paroles</a>")
-        }
-     </li>          
-}
+	@foreach (var item in Model.Tracks)
+	{
+		TimeSpan t = TimeSpan.FromMilliseconds(item.DurationMs);
+		string durationString = string.Format("{0:D2}m:{1:D2}s:{2:D3}ms",
+		t.Minutes,
+		t.Seconds,
+		t.Milliseconds);
+		<li>
+			<a href="https://open.spotify.com/track/@item.Id"></a>@item.Name - @durationString
+			<a href="@Url.RouteUrl("Track", new { idArtist = Model.Artist.Id, idAlbum = Model.Id, idTrack = item.Id })">Paroles</a>
+		</li>
+	}
 </ul>
 
 

@@ -1,0 +1,44 @@
+﻿@using SpotifyAPI.Web
+@using System.Text.RegularExpressions
+@{
+	ViewData["Title"] = "Track";
+}
+@model List<SuperArtists>
+
+
+@foreach (var item in Model)
+{
+	<td><a href="/artist_@item.Id">@item.Name</a></td>
+}
+
+<nav>
+	<ul class="pagination">
+		<li class="page-item"><a class="page-link" href="/lettre_a">A</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_b">B</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_c">C</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_d">D</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_e">E</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_f">F</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_g">G</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_h">H</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_i">I</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_j">J</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_k">K</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_l">L</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_m">M</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_n">N</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_o">O</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_p">P</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_q">Q</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_r">R</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_s">S</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_t">T</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_u">U</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_v">V</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_w">W</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_x">X</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_y">Y</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_z">Z</a></li>
+		<li class="page-item"><a class="page-link" href="/lettre_0-9">0-9</a></li>
+	</ul>
+</nav>

@@ -34,7 +34,6 @@ C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\appsetting
 C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\appsettings.json
 C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\labels.json
 C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\tracks.json
-C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\rappeursfr.json
 C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\app.staticwebassets.runtime.json
 C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\app.exe
 C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\app.deps.json
@@ -67,3 +66,10 @@ C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\HtmlAgilit
 C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\Jil.dll
 C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\Sigil.dll
 C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\System.Runtime.InteropServices.PInvoke.dll
+C:\Users\abaron\Documents\Perso\music\rz-website\app\obj\Debug\net6.0\staticwebassets\msbuild.app.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\abaron\Documents\Perso\music\rz-website\app\obj\Debug\net6.0\staticwebassets\msbuild.build.app.props
+C:\Users\abaron\Documents\Perso\music\rz-website\app\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.app.props
+C:\Users\abaron\Documents\Perso\music\rz-website\app\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.app.props
+C:\Users\abaron\Documents\Perso\music\rz-website\app\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\rappeursgm2.json
+C:\Users\abaron\Documents\Perso\music\rz-website\app\bin\Debug\net6.0\rappeursgm3.json

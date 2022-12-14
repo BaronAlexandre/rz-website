@@ -1,0 +1,22 @@
+﻿@using SpotifyAPI.Web
+@{
+	ViewData["Title"] = "Artiste";
+}
+@model SuperArtists
+
+<p>@Model.Name</p>
+<p>@Model.Popularity</p>
+<p><a href="@String.Concat("https://open.spotify.com/artist/", Model.Id)">lien</a></p>
+@if (Model.Images != null && Model.Images.Count > 0)
+{
+	var image = Model.Images.Last();
+
+	<img src="@image.Url" width="200" height="200" />
+}
+<div>
+	@foreach (var album in Model.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single"))
+	{
+		<p><a href="@Url.RouteUrl("Album", new { idArtist = Model.Id, idAlbum = album.Id })">@album.Name</a> - @album.TotalTracks - <a href="https://open.spotify.com/album/@album.Id">lien</a></p>
+	}
+</div>
+

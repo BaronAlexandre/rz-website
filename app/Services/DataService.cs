@@ -11,7 +11,8 @@ namespace app.Services
 
         public static void Init()
         {
-            Artists = ReadFromJsonFile<List<SuperArtists>>("rappeursfr.json");
+            Artists = ReadFromJsonFile<List<SuperArtists>>("rappeursgm2.json");
+            Artists.AddRange(ReadFromJsonFile<List<SuperArtists>>("rappeursgm3.json"));
             Albums = ReadFromJsonFile<List<Album>>("tracks.json");
             Labels = ReadFromJsonFile<List<string>>("labels.json");
         }
