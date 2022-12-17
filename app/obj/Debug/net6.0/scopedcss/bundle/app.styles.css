@@ -1,49 +1,68 @@
-/* _content/app/Views/Shared/_Layout.cshtml.rz.scp.css */
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand[b-uwi58k5n9p] {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+/* _content/app/Views/Home/Index.cshtml.rz.scp.css */
+.artist-list[b-hjijjck99x] {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0;
 }
 
-a[b-uwi58k5n9p] {
-  color: #0077cc;
+	.artist-list li[b-hjijjck99x] {
+		margin: 20px auto;
+		padding: 10px;
+		border-radius: 5px;
+		background-color: #202326;
+		text-align: center;
+		flex-direction: column;
+	}
+
+.artist-pic[b-hjijjck99x] {
+	border-radius: 100%;
+	padding: 5px;
+	object-fit: cover;
+	width: 170px;
+	height: 170px;
 }
 
-.btn-primary[b-uwi58k5n9p] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+h1[b-hjijjck99x] {
+	text-align: center;
 }
 
-.nav-pills .nav-link.active[b-uwi58k5n9p], .nav-pills .show > .nav-link[b-uwi58k5n9p] {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+header > img[b-hjijjck99x] {
+	width: 100%;
+	opacity: 30%;
+	max-height: 1000px
 }
 
-.border-top[b-uwi58k5n9p] {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom[b-uwi58k5n9p] {
-  border-bottom: 1px solid #e5e5e5;
+#search-form[b-hjijjck99x] {
+	display: flex
 }
 
-.box-shadow[b-uwi58k5n9p] {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+header[b-hjijjck99x] {
+	position: relative;
 }
 
-button.accept-policy[b-uwi58k5n9p] {
-  font-size: 1rem;
-  line-height: inherit;
+	header > i[b-hjijjck99x] {
+		position: absolute;
+		top: 35%;
+		left: 10%;
+		font-size: 150%;
+		font-weight: bold;
+	}
+
+input[type=submit][b-hjijjck99x] {
+	background-color: #202326;
+	color: white;
+	margin: 0 10% 0 1%;
+	border: none;
+	border-radius: 5px;
 }
 
-.footer[b-uwi58k5n9p] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+input[type=text][b-hjijjck99x], select[b-hjijjck99x] {
+	width: 100%;
+	padding: 10px;
+	margin: 0 1% 0 10%;
+	display: inline-block;
+	border: none;
+	border-radius: 5px;
+	box-sizing: border-box;
 }

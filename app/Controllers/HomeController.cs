@@ -21,7 +21,7 @@ namespace app.Controllers
 		public IActionResult Index(string nameArtist)
 		{
 			var rappeurs = DataService.Artists;
-			var pager = new Pagination(rappeurs.Count, 1, 20, 11);
+			var pager = new Pagination(rappeurs.Count, 1, 10, 11);
 			if (!string.IsNullOrEmpty(nameArtist))
 				rappeurs = DataService.Artists.Where(r => r.Name.ToLowerInvariant().Contains(nameArtist.ToLowerInvariant())).OrderByDescending(r => r.Popularity).ToList();
 			else

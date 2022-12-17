@@ -1,4 +1,9 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿let names = ["Orelsan", "Angèle", "Damso", "Nekfeu"];
 
-// Write your JavaScript code.
+function sendit() {
+    document.getElementById("search-form-input").placeholder = "Essayez avec : "+ names[Math.floor(Math.random() * 4)];
+    // Call sendit() the next time, repeating
+    setTimeout(sendit, 2500);
+}
+
+sendit();

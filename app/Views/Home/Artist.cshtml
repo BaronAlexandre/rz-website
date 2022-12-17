@@ -14,7 +14,7 @@
 	<img src="@image.Url" width="200" height="200" />
 }
 <div>
-	@foreach (var album in Model.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single"))
+	@foreach (var album in Model.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single").DistinctBy(a => a.Name))
 	{
 		<p><a href="@Url.RouteUrl("Album", new { idArtist = Model.Id, idAlbum = album.Id })">@album.Name</a> - @album.TotalTracks - <a href="https://open.spotify.com/album/@album.Id">lien</a></p>
 	}

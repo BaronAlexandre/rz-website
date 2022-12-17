@@ -1,18 +1,103 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #202326;
+    color: #fff;
+    height: 5%;
+}
+
+footer {
+    height: 5%;
+    background-color: #202326;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+main {
+    background-color: #12141D;
+}
+
+body, main, p, i {
+    margin: 0px;
+}
+
+p, a, i, h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    color: white;
+}
+
+.navbar .icon {
+    font-size: 1.5em;
+}
+
+main {
+    min-height: 90%;
+    color: #fff;
+}
+
+.navbar .left-link {
+    margin-left: 10px;
+}
+
+.navbar .right-link {
+    margin-right: 10px;
+}
+
+.pagination a {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-style: italic;
+    font-weight: bold;
+    margin: 1px;
+}
+
+.pagination a:hover, .pagination .active {
+    background-color: white;
+    color: #12141D;
+}
+
+footer{
+    padding: 20px;
+    color: white;
+}
+
+a, a:hover, a:visited {
+    text-decoration: none;
+    color: white;
 }
