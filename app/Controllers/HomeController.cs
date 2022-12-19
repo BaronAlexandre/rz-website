@@ -5,6 +5,7 @@ using Genius;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace app.Controllers
@@ -18,6 +19,7 @@ namespace app.Controllers
 			_logger = logger;
 		}
 
+		[Route("/", Name = "Home")]
 		public IActionResult Index(string nameArtist)
 		{
 			var rappeurs = DataService.Artists;
@@ -30,8 +32,9 @@ namespace app.Controllers
 			var model = new HomeViewModel()
 			{
 				Artists = rappeurs,
-				Pagination = pager
-			};
+				Pagination = pager,
+				ArtistsCount = DataService.Artists.Count
+            };
 
 			return View(model);
 		}
@@ -63,10 +66,10 @@ namespace app.Controllers
 			return View(album);
 		}
 
-		[Route("artist_{idArtist}", Name = "Artist")]
-		public IActionResult Artist(string idArtist)
+		[Route("artist_{id}", Name = "Artist")]
+		public IActionResult Artist(string id)
 		{
-			var artist = DataService.Artists.FirstOrDefault(a => a.Id == idArtist);
+			var artist = DataService.Artists.FirstOrDefault(a => a.Id == id);
 			if (artist == null)
 				return NotFound();
 
@@ -114,13 +117,19 @@ namespace app.Controllers
 		{
 			var rappeurs = DataService.Artists.OrderByDescending(a => a.Popularity).Take(100).ToList();
 
-			return View(rappeurs);
+            var model = new IndexLetterViewModel()
+            {
+                Artists = rappeurs,
+                PaginationLetters = DataService.GetPaginationLetters()
+            };
+
+            return View(model);
 		}
 
 		[Route("/lettre_{letter}", Name = "IndexLetter")]
 		public IActionResult IndexLetter(string letter)
 		{
-			if (!Regex.IsMatch(letter, @"[a-z]|0-9"))
+			if (!Regex.IsMatch(letter, @"^([a-z]|0-9)$"))
 				return NotFound();
 
 			var rappeurs = new List<SuperArtists>();
@@ -130,7 +139,15 @@ namespace app.Controllers
 			else
 				rappeurs = DataService.Artists.Where(a => Regex.IsMatch(Helper.RemoveDiacritics(a.Name), @"^(?![a-zA-Z])\w+$")).OrderByDescending(a => a.Popularity).Take(100).ToList();
 
-			return View(rappeurs);
+			var model = new IndexLetterViewModel()
+			{
+				Artists = rappeurs,
+				PaginationLetters = DataService.GetPaginationLetters()
+			};
+
+			model.PaginationLetters.FirstOrDefault(l => l.Slug == letter).IsActive = true;
+
+			return View(model);
 		}
 
 

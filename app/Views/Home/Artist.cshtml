@@ -4,19 +4,19 @@
 }
 @model SuperArtists
 
-<p>@Model.Name</p>
-<p>@Model.Popularity</p>
-<p><a href="@String.Concat("https://open.spotify.com/artist/", Model.Id)">lien</a></p>
-@if (Model.Images != null && Model.Images.Count > 0)
-{
-	var image = Model.Images.Last();
+<section>
+    <div>
+        <h1 class="big">Artiste @Model.Name</h1>
 
-	<img src="@image.Url" width="200" height="200" />
-}
-<div>
-	@foreach (var album in Model.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single").DistinctBy(a => a.Name))
-	{
-		<p><a href="@Url.RouteUrl("Album", new { idArtist = Model.Id, idAlbum = album.Id })">@album.Name</a> - @album.TotalTracks - <a href="https://open.spotify.com/album/@album.Id">lien</a></p>
-	}
-</div>
+        <ul class="albums-list">
+            @foreach (var album in Model.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single").DistinctBy(a => a.Name))
+            {
+                <li>
+                    <p><a href="@Url.RouteUrl("Album", new { idArtist = Model.Id, idAlbum = album.Id })">@album.Name</a> - @album.TotalTracks <i class="fa-solid fa-compact-disc"></i></p>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/@album.Id" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </li>
+            }
+        </ul>
+    </div>
+</section>
 

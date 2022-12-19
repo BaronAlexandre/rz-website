@@ -1,49 +1,53 @@
 ﻿@using SpotifyAPI.Web
 @using System.Text.RegularExpressions
 @{
-	ViewData["Title"] = "Track";
+    ViewData["Title"] = "Track";
 }
-@model List<SuperArtists>
+@model IndexLetterViewModel
 
+<h1>Les artistes par classement alphabétique</h1>
 
-<table class="table" id="myTable">
+<div class="pagination">
+    @foreach (var p in Model.PaginationLetters)
+    {
+        <a class="@(p.IsActive ? "page-link active" : "page-link")" href="@Url.RouteUrl("IndexLetter", new { letter = p.Slug })">@p.Label</a>
+    }
+</div>
 
-	<form method="get" action="/">
-		<input type="text" name="nameArtist" />
-		<input type="submit" value="Rechercher" />
-	</form>
-	<thead>
-		<tr>
-			<th scope="col">Nom</th>
-			<th scope="col">Popularité</th>
-			<th scope="col">Lien</th>
-			<th scope="col">Image</th>
-			<th scope="col">Albums</th>
-		</tr>
-	</thead>
-	@foreach (var item in Model)
-	{
-		<tr>
-			<td><a href="/artist_@item.Id">@item.Name</a></td>
-			<td>@item.Popularity</td>
-			<td><a href="@String.Concat("https://open.spotify.com/artist/", item.Id)">lien</a></td>
-			@if (item.Images != null && item.Images.Count > 0)
-			{
-				var image = item.Images.Last();
+<ul class="artist-list-detailed">
+    @foreach (var item in Model.Artists)
+    {
+        <li>
+            @if (item.Images != null && item.Images.Count > 0)
+            {
+                var image = item.Images.Last();
 
-				<td><img src="@image.Url" width="200" height="200" /></td>
-			}
-			<td>
-				<table>
-					@foreach (var album in item.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single"))
-					{
-						<tr>
-							<td><a href="https://open.spotify.com/album/@album.Id">@album.Name</a> - @album.TotalTracks titres - <a href="@Url.RouteUrl("Album", new { idArtist = item.Id, idAlbum = album.Id })">Detail</a></td>
-						</tr>
-					}
-				</table>
-			</td>
-		</tr>
-	}
-</table>
+                <img src="@image.Url" class="artist-pic">
+            }
+            <div>
+                <p class="big"><a href="@Url.RouteUrl("Artist", new { id = item.Id })">@item.Name</a></p>
 
+                <ul class="albums-list">
+                    @foreach (var album in item.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single").DistinctBy(a => a.Name))
+                    {
+                        <li>
+                            <p><a href="@Url.RouteUrl("Album", new { idArtist = item.Id, idAlbum = album.Id })">@album.Name</a> - @album.TotalTracks <i class="fa-solid fa-compact-disc"></i></p>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/@item.Id" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </li>
+    }
+</ul>
+
+<div class="pagination">
+    @foreach (var p in Model.PaginationLetters)
+    {
+        <a class="@(p.IsActive ? "page-link active" : "page-link")" href="@Url.RouteUrl("IndexLetter", new { letter = p.Slug })">@p.Label</a>
+    }
+</div>
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/index-letters.css" asp-append-version="true" />
+}

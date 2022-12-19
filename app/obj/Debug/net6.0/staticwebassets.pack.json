@@ -1,6 +1,10 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\css\\index-letters.css",
+      "PackagePath": "staticwebassets\\css\\index-letters.css"
+    },
+    {
       "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\css\\index.css",
       "PackagePath": "staticwebassets\\css\\index.css"
     },

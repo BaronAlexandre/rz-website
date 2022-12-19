@@ -1,0 +1,74 @@
+.pagination {
+    align-self: center;
+}
+
+    .pagination a {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        display: inline-block;
+        text-decoration: none;
+        font-style: italic;
+        font-weight: bold;
+        margin: 1px;
+    }
+
+        .pagination a:hover, .pagination .active {
+            background-color: white;
+            color: #12141D;
+        }
+
+.artist-list-detailed {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 0 10%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+    .artist-list-detailed > *, .artist-list-detailed div > * {
+        margin: 20px;
+    }
+
+    .artist-list-detailed > li {
+        display: flex;
+        margin: 20px;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #202326;
+        align-items: center;
+    }
+
+        .artist-list-detailed > li div {
+            flex-grow: 1;
+        }
+
+    .artist-list-detailed a {
+        transition: all .2s ease-in-out;
+    }
+
+        .artist-list-detailed a:hover {
+            transform: scale(5);
+        }
+
+.artist-pic {
+    border-radius: 100%;
+    padding: 5px;
+    object-fit: cover;
+    width: 170px;
+    height: 170px;
+}
+
+.albums-list {
+    display: flex;
+    flex-direction: column;
+}
+
+    .albums-list li {
+        margin: 2px 0;
+    }

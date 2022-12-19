@@ -8,10 +8,12 @@
     @await RenderSectionAsync("Styles", required: false)
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/app.styles.css" asp-append-version="true" />
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
-        <a class="left-link" href="#"><i>RapMinerz</i></a>
+        <a class="left-link" href="@Url.RouteUrl("Home")"><i>RapMinerz</i></a>
         <img src="~/img/logo.png" width="50" height="50" />
         <div>
             <a class="right-link" href="#">Top artistes</a>
@@ -19,7 +21,9 @@
         </div>
     </nav>
     <main role="main" class="pb-3">
-        @RenderBody()
+        <section class="container">
+            @RenderBody()
+        </section>
     </main>
 
     <footer>

@@ -2,7 +2,6 @@
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    margin: 0;
 }
 
     .artist-list li {
@@ -29,7 +28,7 @@ h1 {
 header > img {
     width: 100%;
     opacity: 30%;
-    max-height: 1000px
+    max-height: 1000px;
 }
 
 #search-form {
@@ -38,6 +37,7 @@ header > img {
 
 header {
     position: relative;
+    margin: -20px;
 }
 
     header > i {

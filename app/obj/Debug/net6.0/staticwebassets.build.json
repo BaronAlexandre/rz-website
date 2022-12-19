@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KbyEDLYVkf4XxU5tjXtEE5NygnYvgUftfVAmg6amhoE=",
+  "Hash": "BD6a9bUZ8o0mmlpA8C1KQi4EGmr9NNXOb7YpjbeMc2Q=",
   "Source": "app",
   "BasePath": "_content/app",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\index.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\css\\index-letters.css",
+      "SourceId": "app",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\",
+      "BasePath": "_content/app",
+      "RelativePath": "css/index-letters.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\index-letters.css"
     },
     {
       "Identity": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\css\\site.css",

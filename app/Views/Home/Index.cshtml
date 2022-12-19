@@ -9,14 +9,14 @@
 	<img src="~/img/bg.png" />
 	<i>Bien plus que le répertoire du rap français</i>
 </header>
-<h1>Découvrez les paroles des 3 000 rappeurs francophones</h1>
+<h1>Découvrez les paroles des @string.Format("{0:N}", Model.ArtistsCount).Replace(",", " ").Replace(".00",  "") rappeurs francophones</h1>
 
 <form method="get" action="/" id="search-form">
 	<input type="text" name="nameArtist" id="search-form-input" />
 	<input type="submit" value="Rechercher" />
 </form>
 
-<h2>Les artites les plus populaires</h2>
+<h2>Les artistes les plus populaires</h2>
 <ul class="artist-list">
 	@foreach (var item in Model.Artists)
 	{
