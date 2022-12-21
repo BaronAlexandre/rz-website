@@ -72,3 +72,7 @@
     .albums-list li {
         margin: 2px 0;
     }
+
+    .albums-list li > p {
+        margin: 10px 0;
+    }
