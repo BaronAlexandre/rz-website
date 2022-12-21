@@ -4,10 +4,21 @@
 @model Track
 @{
 	ViewData["Title"] = "Track";
-	var lines = Regex.Split(Model.Text, @"(?=\[[A-Z])");
+	string[] regexes = new string[] { "(?<=[a-z])(?=[A-Z])", @"(\[.+?\])" };
+
+	var lines = Regex.Split(Model.Text, string.Join("|", regexes));
 }
 
-@foreach (var item in lines)
-{
-	<p>@Html.Raw(item)</p>
+<h1>Paroles de @Model.Name par @Model.Album.Artist.Name dans l'album @Model.Album.Name</h1>
+
+<section id="track">
+	@foreach (var item in lines)
+	{
+		<p>@Html.Raw(item)</p>
+	}
+</section>
+
+
+@section Styles{
+		<link rel="stylesheet" href="~/css/track.css" asp-append-version="true" />
 }

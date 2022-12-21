@@ -13,8 +13,8 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\css\\track.css",
+      "PackagePath": "staticwebassets\\css\\track.css"
     },
     {
       "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\img\\bg.png",

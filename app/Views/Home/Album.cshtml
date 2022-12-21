@@ -1,23 +1,47 @@
 ﻿@using SpotifyAPI.Web
 @{
-	ViewData["Title"] = "Album";
+    ViewData["Title"] = "Album";
 }
 @model Album
 
-<ul>
+<section>
+    <div>
+        <h1 class="big">Album @Model.</h1>
 
-	@foreach (var item in Model.Tracks)
-	{
-		TimeSpan t = TimeSpan.FromMilliseconds(item.DurationMs);
-		string durationString = string.Format("{0:D2}m:{1:D2}s:{2:D3}ms",
-		t.Minutes,
-		t.Seconds,
-		t.Milliseconds);
-		<li>
-			<a href="https://open.spotify.com/track/@item.Id"></a>@item.Name - @durationString
-			<a href="@Url.RouteUrl("Track", new { idArtist = Model.Artist.Id, idAlbum = Model.Id, idTrack = item.Id })">Paroles</a>
-		</li>
-	}
-</ul>
+        <ul class="albums-list">
+            @foreach (var track in Model.Tracks)
+            {
+                <li>
+                    <p><a href="@Url.RouteUrl("Track", new { idArtist = Model.Artist.Id, idAlbum = Model.Id, idTrack = track.Id })">@track.Name - Paroles</a><i class="fa-solid fa-music"></i></p>
+                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/@track.Id" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                </li>
+            }
+        </ul>
+    </div>
+</section>
+
+<section>
+    <ul class="cloud" role="navigation" aria-label="Webdev word cloud">
+        <li><a href="#" data-weight="4">Blablabla</a></li>
+        <li><a href="#" data-weight="1">Blablabla</a></li>
+        <li><a href="#" data-weight="5">Blablabla</a></li>
+        <li><a href="#" data-weight="8">Blablabla</a></li>
+        <li><a href="#" data-weight="6">Blablabla</a></li>
+        <li><a href="#" data-weight="4">Blablabla</a></li>
+        <li><a href="#" data-weight="5">Blablabla</a></li>
+        <li><a href="#" data-weight="6">Blablabla</a></li>
+        <li><a href="#" data-weight="2">Blablabla</a></li>
+        <li><a href="#" data-weight="9">Blablabla</a></li>
+        <li><a href="#" data-weight="3">Blablabla</a></li>
+        <li><a href="#" data-weight="7">Blablabla</a></li>
+        <li><a href="#" data-weight="8">Blablabla</a></li>
+        <li><a href="#" data-weight="1">Blablabla</a></li>
+        <li><a href="#" data-weight="3">Blablabla</a></li>
+        <li><a href="#" data-weight="9">Blablabla</a></li>
+    </ul>
+</section>
 
 
+@section Styles{
+    <link rel="stylesheet" href="~/css/index-letters.css" asp-append-version="true" />
+}

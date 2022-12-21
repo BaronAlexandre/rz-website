@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BD6a9bUZ8o0mmlpA8C1KQi4EGmr9NNXOb7YpjbeMc2Q=",
+  "Hash": "ovJUCa/3p/qDtoewZafCeC60fU8TRKSTuIZULzxPE1g=",
   "Source": "app",
   "BasePath": "_content/app",
   "Mode": "Default",
@@ -68,12 +68,12 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\css\\track.css",
       "SourceId": "app",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\",
       "BasePath": "_content/app",
-      "RelativePath": "favicon.ico",
+      "RelativePath": "css/track.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -82,7 +82,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\favicon.ico"
+      "OriginalItemSpec": "wwwroot\\css\\track.css"
     },
     {
       "Identity": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\img\\bg.png",

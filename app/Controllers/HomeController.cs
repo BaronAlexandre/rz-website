@@ -89,12 +89,17 @@ namespace app.Controllers
 			var artist = DataService.Artists.FirstOrDefault(a => a.Id == idArtist);
 			if (artist == null)
 				return NotFound();
+			var albumSimple = artist.Albums.Items.FirstOrDefault(a => a.Id == idAlbum);
 			var album = DataService.Albums.FirstOrDefault(a => a.Id == idAlbum);
 			if (album == null)
 				return NotFound();
 			var track = album.Tracks.FirstOrDefault(t => t.Id == idTrack);
 			if (track == null)
 				return NotFound();
+
+			track.Album = album;
+			track.Album.Name = albumSimple.Name;
+			track.Album.Artist = artist;
 
 			var genius = new GeniusClient("lK00bVSgu4CJpmnp8Db8Lo2K0mYrrjBM5Z66sc6PWbZUP1nkkC08YABXd_JFyh0c");
 			var songsfind = genius.SearchClient.Search(track.Name + " by " + artist.Name).Result;
