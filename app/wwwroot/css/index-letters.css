@@ -91,9 +91,9 @@ ul.cloud {
     width: 450px;
 }
 
-    ul.cloud a {
+    ul.cloud p {
         --size: 4;
-        --color: #a33;
+        --color: #6DFCBA;
         color: var(--color);
         font-size: calc(var(--size) * 0.25rem + 0.5rem);
         display: block;
@@ -102,64 +102,60 @@ ul.cloud {
         text-decoration: none;
     }
 
-        ul.cloud a[data-weight="1"] {
+        ul.cloud p[data-weight="1"] {
             --size: 1;
         }
 
-        ul.cloud a[data-weight="2"] {
+        ul.cloud p[data-weight="2"] {
             --size: 2;
         }
 
-        ul.cloud a[data-weight="3"] {
+        ul.cloud p[data-weight="3"] {
             --size: 3;
         }
 
-        ul.cloud a[data-weight="4"] {
+        ul.cloud p[data-weight="4"] {
             --size: 4;
         }
 
-        ul.cloud a[data-weight="5"] {
+        ul.cloud p[data-weight="5"] {
             --size: 6;
         }
 
-        ul.cloud a[data-weight="6"] {
+        ul.cloud p[data-weight="6"] {
             --size: 8;
         }
 
-        ul.cloud a[data-weight="7"] {
+        ul.cloud p[data-weight="7"] {
             --size: 10;
         }
 
-        ul.cloud a[data-weight="8"] {
+        ul.cloud p[data-weight="8"] {
             --size: 13;
         }
 
-        ul.cloud a[data-weight="9"] {
+        ul.cloud p[data-weight="9"] {
             --size: 16;
         }
 
-ul[data-show-value] a::after {
+ul[data-show-value] p::after {
     content: " (" attr(data-weight) ")";
     font-size: 1rem;
 }
 
-ul.cloud li:nth-child(2n+1) a {
+ul.cloud li:nth-child(2n+1) p {
     --color: #181;
 }
 
-ul.cloud li:nth-child(3n+1) a {
+ul.cloud li:nth-child(3n+1) p {
     --color: #33a;
 }
 
-ul.cloud li:nth-child(4n+1) a {
+ul.cloud li:nth-child(4n+1) p {
     --color: #c38;
 }
 
-ul.cloud a:focus {
-    outline: 1px dashed;
-}
-
-ul.cloud a::before {
+ul.cloud p::before {
     content: "";
     position: absolute;
     top: 0;
@@ -181,4 +177,28 @@ ul.cloud a:hover::before {
     ul.cloud * {
         transition: none !important;
     }
+}
+
+.song-timeline {
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0;
+}
+
+.album-timeline > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+    .album-timeline > div > p {
+        margin-right: auto;
+    }
+
+.song-timeline {
+    width: 80%;
+    height: 40px;
+    background: -webkit-linear-gradient(left, #0AF991 0,#0AF991 30%, #78FCFE 30%, #78FCFE 50%, #1A99FA 50%, #1A99FA 100%);
+    background: -moz-linear-gradient(left, #0AF991 0,#0AF991 30%, #78FCFE 30%, #78FCFE 50%, #1A99FA 50%, #1A99FA 100%);
+    background: -ms-linear-gradient(left, #0AF991 0,#0AF991 30%, #78FCFE 30%, #78FCFE 50%, #1A99FA 50%, #1A99FA 100%);
+    background: linear-gradient(left, #0AF991 0,#0AF991 30%, #78FCFE 30%, #78FCFE 50%, #1A99FA 50%, #1A99FA 100%);
 }

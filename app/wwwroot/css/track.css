@@ -1,3 +1,9 @@
-#track p {
-    margin: 10px;
+#track p:not(.music-section) {
+    margin: 5px;
+}
+
+
+.music-section {
+    margin: 20px 0;
+    font-weight: bold;
 }

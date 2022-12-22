@@ -4,7 +4,7 @@
 @model Track
 @{
 	ViewData["Title"] = "Track";
-	string[] regexes = new string[] { "(?<=[a-z])(?=[A-Z])", @"(\[.+?\])" };
+	string[] regexes = new string[] { "(?<=[a-z])(?=[A-Z])", @"(\[.+?\])", @"(?<=\))(?=[A-Za-z])" };
 
 	var lines = Regex.Split(Model.Text, string.Join("|", regexes));
 }
@@ -14,7 +14,10 @@
 <section id="track">
 	@foreach (var item in lines)
 	{
-		<p>@Html.Raw(item)</p>
+		if (!string.IsNullOrEmpty(item))
+		{
+			<p class="@(Regex.IsMatch(item, @"\[.*\]") ? "music-section" : "")">@item</p>
+		}
 	}
 </section>
 
