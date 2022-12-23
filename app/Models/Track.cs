@@ -9,5 +9,6 @@ namespace app.Models
         public int DurationMs { get; set; }
         public string Text { get; set; }
         public Album Album { get; set; }
+        public string Timeline { get; set; }
     }
 }

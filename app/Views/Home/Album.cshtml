@@ -1,5 +1,4 @@
-﻿@using SpotifyAPI.Web
-@{
+﻿@{
     ViewData["Title"] = "Album";
     Random r = new Random();
 }
@@ -35,7 +34,10 @@
     <h2>La composition des musiques de @Model.Name</h2>
     @foreach (var track in Model.Tracks)
     {
-        <div><p>@track.Name</p><div class="song-timeline"></div></div>
+        int num1 = r.Next(0, 101);
+        int num2 = r.Next(0, 101);
+        int num3 = 100 - num1 - num2;
+        <div><p>@track.Name</p><div style="--songTimeline : -webkit-linear-gradient(left, @track.Timeline)" class="song-timeline"></div></div>
     }
 </section>
 

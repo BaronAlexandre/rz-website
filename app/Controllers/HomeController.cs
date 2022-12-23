@@ -64,6 +64,63 @@ namespace app.Controllers
             var albumSimple = album.Artist.Albums.Items.FirstOrDefault(a => a.Id == idAlbum);
             album.Name = albumSimple.Name;
 
+            foreach (var t in album.Tracks)
+            {
+                var colors = new List<string> { "#0FF395", "#1F96FD", "#FB5794", "#F7D86A", "#78FCFF" };
+                Random r = new Random();
+                var numbers = new List<SongTimeline>();
+                var remaining = 100;
+                var nb = r.Next(2, 5);
+                numbers.Add(new SongTimeline()
+                {
+                    Percentage = 0,
+                    Color = colors[r.Next(colors.Count)]
+                });
+                numbers.Add(new SongTimeline()
+                {
+                    Percentage = 100,
+                    Color = colors[r.Next(colors.Count)]
+                });
+                for (int i = 0; i < nb; i++)
+                    if (i < (nb - 1))
+                    {
+                        int number = r.Next(0, remaining);
+                        numbers.Add(new SongTimeline()
+                        {
+                            Percentage = r.Next(1, 99),
+                            Color = colors[r.Next(colors.Count)]
+                        });
+                        remaining -= number;
+                    }
+                    else
+                        numbers.Add(new SongTimeline()
+                        {
+                            Percentage = remaining,
+                            Color = colors[r.Next(colors.Count)]
+                        });
+                numbers = numbers.OrderBy(n => n.Percentage).ToList();
+                string style = "";
+
+                for (int i = 0; i < numbers.Count; i++)
+                {
+                    var color = numbers[i].Color;
+                    var percentage = numbers[i].Percentage;
+                    if (i == 0)
+                    {
+                        style += $"{color} 0%, {color} {percentage}%";
+                    }
+                    else
+                    {
+                        var prevColor = numbers[i - 1].Color;
+                        var prevPercentage = numbers[i - 1].Percentage;
+                        style += $", {prevColor} {percentage}%, {color} {percentage}%";
+                    }
+                }
+
+                style += $", {numbers[0].Color} 100%";
+                t.Timeline = style;
+            }
+
             return View(album);
         }
 

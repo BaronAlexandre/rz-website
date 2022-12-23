@@ -197,8 +197,5 @@ ul.cloud a:hover::before {
 .song-timeline {
     width: 80%;
     height: 40px;
-    background: -webkit-linear-gradient(left, #0AF991 0,#0AF991 30%, #78FCFE 30%, #78FCFE 50%, #1A99FA 50%, #1A99FA 100%);
-    background: -moz-linear-gradient(left, #0AF991 0,#0AF991 30%, #78FCFE 30%, #78FCFE 50%, #1A99FA 50%, #1A99FA 100%);
-    background: -ms-linear-gradient(left, #0AF991 0,#0AF991 30%, #78FCFE 30%, #78FCFE 50%, #1A99FA 50%, #1A99FA 100%);
-    background: linear-gradient(left, #0AF991 0,#0AF991 30%, #78FCFE 30%, #78FCFE 50%, #1A99FA 50%, #1A99FA 100%);
+    background: var(--songTimeline);
 }
