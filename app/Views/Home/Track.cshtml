@@ -4,19 +4,17 @@
 @model Track
 @{
 	ViewData["Title"] = "Track";
-	string[] regexes = new string[] { "(?<=[a-z])(?=[A-Z])", @"(\[.+?\])", @"(?<=\))(?=[A-Za-z])" };
-
-	var lines = Regex.Split(Model.Text, string.Join("|", regexes));
 }
 
 <h1>Paroles de @Model.Name par @Model.Album.Artist.Name dans l'album @Model.Album.Name</h1>
 
 <section id="track">
-	@foreach (var item in lines)
+	@foreach (var item in Model.Text)
 	{
-		if (!string.IsNullOrEmpty(item))
+		<h2>@item.Item1</h2>
+		foreach (var line in Regex.Split(item.Item2, "(?<=[a-z])(?=[A-Z])"))
 		{
-			<p class="@(Regex.IsMatch(item, @"\[.*\]") ? "music-section" : "")">@item</p>
+			<p class="@(Regex.IsMatch(line, @"\[.*\]") ? "music-section" : "")">@line</p>
 		}
 	}
 </section>

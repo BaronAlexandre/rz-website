@@ -92,6 +92,28 @@
           }
         }
       },
+      "Microsoft.Win32.SystemEvents/7.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "NETStandard.Library/1.5.0-rc2-24027": {
         "type": "package",
         "dependencies": {
@@ -346,6 +368,31 @@
         "compile": {
           "ref/netstandard1.5/System.Diagnostics.Tracing.dll": {
             "related": ".xml"
+          }
+        }
+      },
+      "System.Drawing.Common/7.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Win32.SystemEvents": "7.0.0"
+        },
+        "compile": {
+          "lib/net6.0/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/System.Drawing.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net6.0/System.Drawing.Common.dll": {
+            "assetType": "runtime",
+            "rid": "win"
           }
         }
       },
@@ -1505,6 +1552,37 @@
         "ref/xamarinwatchos10/_._"
       ]
     },
+    "Microsoft.Win32.SystemEvents/7.0.0": {
+      "sha512": "2nXPrhdAyAzir0gLl8Yy8S5Mnm/uBSQQA7jEsILOS1MTyS7DbmV1NgViMtvV1sfCD1ebITpNwb1NIinKeJgUVQ==",
+      "type": "package",
+      "path": "microsoft.win32.systemevents/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Win32.SystemEvents.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Win32.SystemEvents.targets",
+        "lib/net462/Microsoft.Win32.SystemEvents.dll",
+        "lib/net462/Microsoft.Win32.SystemEvents.xml",
+        "lib/net6.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/net6.0/Microsoft.Win32.SystemEvents.xml",
+        "lib/net7.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/net7.0/Microsoft.Win32.SystemEvents.xml",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.dll",
+        "lib/netstandard2.0/Microsoft.Win32.SystemEvents.xml",
+        "microsoft.win32.systemevents.7.0.0.nupkg.sha512",
+        "microsoft.win32.systemevents.nuspec",
+        "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.xml",
+        "runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.dll",
+        "runtimes/win/lib/net7.0/Microsoft.Win32.SystemEvents.xml",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "NETStandard.Library/1.5.0-rc2-24027": {
       "sha512": "4f0PviqALhzt6cOGUFibsaXKN+Rh/lwF95LXH9sYURkGjrn28NvkbK18Zw5BXLIL2v2TqzPgaSKsKhUniNMtXA==",
       "type": "package",
@@ -2127,6 +2205,43 @@
         "ref/xamarinwatchos10/_._",
         "system.diagnostics.tracing.4.1.0-rc2-24027.nupkg.sha512",
         "system.diagnostics.tracing.nuspec"
+      ]
+    },
+    "System.Drawing.Common/7.0.0": {
+      "sha512": "KIX+oBU38pxkKPxvLcLfIkOV5Ien8ReN78wro7OF5/erwcmortzeFx+iBswlh2Vz6gVne0khocQudGwaO1Ey6A==",
+      "type": "package",
+      "path": "system.drawing.common/7.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Drawing.Common.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Drawing.Common.targets",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net462/System.Drawing.Common.dll",
+        "lib/net462/System.Drawing.Common.xml",
+        "lib/net6.0/System.Drawing.Common.dll",
+        "lib/net6.0/System.Drawing.Common.xml",
+        "lib/net7.0/System.Drawing.Common.dll",
+        "lib/net7.0/System.Drawing.Common.xml",
+        "lib/netstandard2.0/System.Drawing.Common.dll",
+        "lib/netstandard2.0/System.Drawing.Common.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "runtimes/win/lib/net6.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/net6.0/System.Drawing.Common.xml",
+        "runtimes/win/lib/net7.0/System.Drawing.Common.dll",
+        "runtimes/win/lib/net7.0/System.Drawing.Common.xml",
+        "system.drawing.common.7.0.0.nupkg.sha512",
+        "system.drawing.common.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Globalization/4.0.11-rc2-24027": {
@@ -4550,31 +4665,38 @@
     "net6.0": [
       "Genius.NET >= 4.0.1",
       "HtmlAgilityPack >= 1.11.46",
-      "SpotifyAPI.Web >= 6.3.0"
+      "SpotifyAPI.Web >= 6.3.0",
+      "System.Drawing.Common >= 7.0.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexandre\\.nuget\\packages\\": {}
+    "C:\\Users\\abaron\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\app.csproj",
+      "projectUniqueName": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\app.csproj",
       "projectName": "app",
-      "projectPath": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\app.csproj",
-      "packagesPath": "C:\\Users\\Alexandre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\obj\\",
+      "projectPath": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\app.csproj",
+      "packagesPath": "C:\\Users\\abaron\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Alexandre\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\abaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nexus.hellowork.com:8443/repository/nuget-hosted/": {}
       },
       "frameworks": {
         "net6.0": {
@@ -4603,6 +4725,10 @@
           "SpotifyAPI.Web": {
             "target": "Package",
             "version": "[6.3.0, )"
+          },
+          "System.Drawing.Common": {
+            "target": "Package",
+            "version": "[7.0.0, )"
           }
         },
         "imports": [
@@ -4624,7 +4750,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

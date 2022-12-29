@@ -1,28 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\app.csproj": {}
+    "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\app.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\app.csproj": {
+    "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\app.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\app.csproj",
+        "projectUniqueName": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\app.csproj",
         "projectName": "app",
-        "projectPath": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\app.csproj",
-        "packagesPath": "C:\\Users\\Alexandre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\obj\\",
+        "projectPath": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\app.csproj",
+        "packagesPath": "C:\\Users\\abaron\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Alexandre\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\abaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nexus.hellowork.com:8443/repository/nuget-hosted/": {}
         },
         "frameworks": {
           "net6.0": {
@@ -51,6 +56,10 @@
             "SpotifyAPI.Web": {
               "target": "Package",
               "version": "[6.3.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             }
           },
           "imports": [
@@ -72,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

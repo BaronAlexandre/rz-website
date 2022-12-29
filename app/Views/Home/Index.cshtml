@@ -21,9 +21,7 @@
 	@foreach (var item in Model.Artists)
 	{
 		<li>
-			@{var image = item.Images.Last();}
-
-			<img src="@image.Url" class="artist-pic">
+			<img src="@item.Images.Last().Url" class="artist-pic">
 			<p>@item.Name</p>
 		</li>
 	}
