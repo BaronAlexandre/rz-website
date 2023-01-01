@@ -2,7 +2,7 @@
 {
     public class SongTimeline
     {
-        public int Percentage { get; set; }
+        public double Percentage { get; set; }
         public string Color{ get; set; }
     }
 }

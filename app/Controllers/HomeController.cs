@@ -4,9 +4,11 @@ using app.Services;
 using Genius;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
+using Sigil;
 using System.Diagnostics;
 using System.Drawing;
 using System.Text.RegularExpressions;
+using static SpotifyAPI.Web.PlaylistRemoveItemsRequest;
 
 namespace app.Controllers
 {
@@ -159,6 +161,7 @@ namespace app.Controllers
 				return NotFound();
 
 			track.Album = album;
+            track.Text = new List<TrackElement>();
 			track.Album.Name = albumSimple.Name;
 			track.Album.Images = albumSimple.Images;
 			track.Album.Artist = artist;
@@ -177,13 +180,82 @@ namespace app.Controllers
 			{
 				HtmlWeb web = new HtmlWeb();
 				HtmlDocument doc = web.Load(songfindUrl.Result.Url);
-				var headerNames = doc.DocumentNode.SelectNodes("//*[@id='lyrics-root']/div[2]");
-				var text = System.Web.HttpUtility.HtmlDecode(headerNames.FirstOrDefault().InnerText);
+				var headerNames = doc.DocumentNode.SelectNodes("//*[@data-lyrics-container=\"true\"]");
+				var text = System.Web.HttpUtility.HtmlDecode(string.Join("", headerNames.SelectMany(p => p.InnerText)));
 				if (text == null)
 					return NotFound();
 
-				track.Text = Helper.GetValuesToDictionary(Regex.Replace(text, @"\[Paroles de.*?\] ?", ""));
+				var lyrics = Helper.GetValuesToDictionary(Regex.Replace(text, @"\[Paroles de.*?\] ?", ""));
+
+				foreach (var element in lyrics)
+				{
+					track.Text.Add(new TrackElement()
+					{
+						Percentage = (element.Item2.Length / (double)text.Length) * 100,
+						Lines = Regex.Split(element.Item2, "(?<=[a-z])(?=[A-Z])|(?<=\\))(?=[A-Za-z])").ToList(),
+						Title = element.Item1,
+						Type = Regex.IsMatch(element.Item1, ".*couplet.*", RegexOptions.IgnoreCase) ? TrackElementType.Verse : Regex.IsMatch(element.Item1, ".*refrain.*", RegexOptions.IgnoreCase) ? TrackElementType.Tune : Regex.IsMatch(element.Item1, ".*(pont|intro|outro).*", RegexOptions.IgnoreCase) ? TrackElementType.Bridge : TrackElementType.None
+					});
+				}
 			};
+
+
+			var timeline = new List<SongTimeline>();
+			var alreadyTaken = 0.0;
+			timeline.Add(new SongTimeline()
+			{
+				Percentage = 0,
+				Color = track.Text.FirstOrDefault().Type == TrackElementType.Tune ? "#1B97FE" : track.Text.FirstOrDefault().Type == TrackElementType.Verse ? "#06FA8E" : track.Text.FirstOrDefault().Type == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
+			});
+			for (int i = 0; i < track.Text.Count; i++)
+				if (i ==  (track.Text.Count - 1))
+				{
+					timeline.Add(new SongTimeline()
+					{
+						Percentage = track.Text[i].Percentage + alreadyTaken,
+						Color = track.Text[i].Type == TrackElementType.Tune ? "#1B97FE" : track.Text[i].Type == TrackElementType.Verse ? "#06FA8E" : track.Text[i].Type == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
+					});
+					alreadyTaken += track.Text[i].Percentage;
+				}
+				else
+				{
+					timeline.Add(new SongTimeline()
+					{
+						Percentage = track.Text[i].Percentage + alreadyTaken,
+						Color = track.Text[i + 1].Type == TrackElementType.Tune ? "#1B97FE" : track.Text[i + 1].Type == TrackElementType.Verse ? "#06FA8E" : track.Text[i + 1].Type == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
+					});
+					timeline.Add(new SongTimeline()
+					{
+						Percentage = track.Text[i].Percentage + alreadyTaken,
+						Color = track.Text[i + 1].Type == TrackElementType.Tune ? "#1B97FE" : track.Text[i + 1].Type == TrackElementType.Verse ? "#06FA8E" : track.Text[i + 1].Type == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
+					});
+					alreadyTaken += track.Text[i].Percentage;
+				}
+			timeline.Add(new SongTimeline()
+			{
+				Percentage = 100,
+				Color = track.Text.LastOrDefault().Type == TrackElementType.Tune ? "#1B97FE" : track.Text.LastOrDefault().Type == TrackElementType.Verse ? "#06FA8E" : track.Text.LastOrDefault().Type == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
+			});
+			string style = "";
+
+			for (int i = 0; i < timeline.Count; i++)
+			{
+				var color = timeline[i].Color;
+				var percentage = timeline[i].Percentage;
+				if (i == 0)
+				{
+					style += $"{color} 0%, {color} {percentage}%";
+				}
+				else
+				{
+					var prevColor = timeline[i - 1].Color;
+					var prevPercentage = timeline[i - 1].Percentage;
+					style += $", {prevColor} {percentage}%, {color} {percentage}%";
+				}
+			}
+
+			style += $", {timeline[0].Color} 100%";
+			track.Timeline = style;
 
 			return View(track);
 		}

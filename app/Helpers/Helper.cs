@@ -44,7 +44,7 @@ namespace app.Helpers
 		public static List<Tuple<string, string>> GetValuesToDictionary(string text)
 		{
 			var pattern = @"\[([^\]]+)\]([^\[]+)";
-			//If spaces between digit and equal sign are possible then (\d+)\s*=\s*(.*?)((?=\d\s?=)|\n)
+
 			var regex = new Regex(pattern);
 
 			var pairs = new List<Tuple<string, string>>();
@@ -58,7 +58,6 @@ namespace app.Helpers
 				{
 					pairs.Add(Tuple.Create(key, value));
 				}
-				//pairs.Add(key, value);
 			}
 
 			return pairs;

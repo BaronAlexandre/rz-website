@@ -5,21 +5,37 @@
 @{
 	ViewData["Title"] = "Track";
 }
+<img src="@Model.Album.Images.First().Url" class="album-pic">
 
-<h1>Paroles de @Model.Name par @Model.Album.Artist.Name dans l'album @Model.Album.Name</h1>
+<h1>Paroles @Model.Name</h1>
 
 <section id="track">
 	@foreach (var item in Model.Text)
 	{
-		<h2>@item.Item1</h2>
-		foreach (var line in Regex.Split(item.Item2, "(?<=[a-z])(?=[A-Z])"))
-		{
-			<p class="@(Regex.IsMatch(line, @"\[.*\]") ? "music-section" : "")">@line</p>
-		}
+		<section class="music-section @item.Type.ToString().ToLower()">
+
+			<h2>@item.Title</h2>
+			@foreach (var line in item.Lines)
+			{
+				<p>@line</p>
+			}
+		</section>
 	}
 </section>
 
+<h2>STRUCTURE LYRICALE @Model.Name</h2>
+<div><div style="--songTimeline : -webkit-linear-gradient(left, @Model.Timeline)" class="song-timeline"></div></div>
+
+
+<h2>Répartition lyricale du track</h2>
+
+<h2>Répartition lyricale de l'album</h2>
+
+<h2>Densité lyricale @Model.Name</h2>
+<p>@Model.DurationMs</p>
+
+<h2>Moyenne de l'album</h2>
 
 @section Styles{
-		<link rel="stylesheet" href="~/css/track.css" asp-append-version="true" />
+	<link rel="stylesheet" href="~/css/track.css" asp-append-version="true" />
 }

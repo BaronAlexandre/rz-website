@@ -114,6 +114,10 @@ C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\obj\Debug\net6.0
 C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\obj\Debug\net6.0\app.pdb
 C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\obj\Debug\net6.0\app.genruntimeconfig.cache
 C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\obj\Debug\net6.0\ref\app.dll
+C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\obj\Debug\net6.0\app.csproj.AssemblyReference.cache
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\obj\Debug\net6.0\app.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\obj\Debug\net6.0\app.AssemblyInfoInputs.cache
@@ -137,10 +141,14 @@ C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\Genius.dll
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\HtmlAgilityPack.dll
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\Jil.dll
+C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\Sigil.dll
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\SpotifyAPI.Web.dll
+C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\System.Runtime.InteropServices.PInvoke.dll
+C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\obj\Debug\net6.0\staticwebassets\msbuild.app.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\obj\Debug\net6.0\staticwebassets\msbuild.build.app.props
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.app.props
@@ -155,7 +163,3 @@ C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\obj\Debug\net6
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\obj\Debug\net6.0\app.pdb
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\obj\Debug\net6.0\app.genruntimeconfig.cache
 C:\Users\Alexandre\Documents\Developpement\Projets\rz-website\app\obj\Debug\net6.0\ref\app.dll
-C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\bin\Debug\net6.0\System.Drawing.Common.dll
-C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\abaron\Documents\Perso\music\rz-website\rz-website\app\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll

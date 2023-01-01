@@ -5,5 +5,42 @@
 
 .music-section {
     margin: 20px 0;
+    padding-left: 10px;
     font-weight: bold;
+}
+
+.bridge {
+    border-left: solid 5px #78FCFF;
+}
+.verse {
+    border-left: solid 5px #06FA8E;
+}
+.tune {
+    border-left: solid 5px #1B97FE;
+}
+.none {
+    border-left: solid 5px #FF9425;
+}
+
+
+
+
+
+.song-timeline {
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0;
+}
+
+.song-timeline {
+    width: 80%;
+    height: 40px;
+    background: var(--songTimeline);
+}
+
+.album-pic {
+    padding: 5px;
+    object-fit: cover;
+    width: 170px;
+    height: 170px;
 }

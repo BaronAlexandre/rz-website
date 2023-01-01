@@ -1,31 +1,31 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\wwwroot\\css\\index-letters.css",
+      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\css\\index-letters.css",
       "PackagePath": "staticwebassets\\css\\index-letters.css"
     },
     {
-      "Id": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\wwwroot\\css\\index.css",
+      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\css\\index.css",
       "PackagePath": "staticwebassets\\css\\index.css"
     },
     {
-      "Id": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\wwwroot\\css\\track.css",
+      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\css\\track.css",
       "PackagePath": "staticwebassets\\css\\track.css"
     },
     {
-      "Id": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\wwwroot\\img\\bg.png",
+      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\img\\bg.png",
       "PackagePath": "staticwebassets\\img\\bg.png"
     },
     {
-      "Id": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\wwwroot\\img\\logo.png",
+      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\img\\logo.png",
       "PackagePath": "staticwebassets\\img\\logo.png"
     },
     {
-      "Id": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
