@@ -5,6 +5,7 @@ using Genius;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using Sigil;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Text.RegularExpressions;
@@ -236,7 +237,7 @@ namespace app.Controllers
 				Percentage = 100,
 				Color = track.Text.LastOrDefault().Type == TrackElementType.Tune ? "#1B97FE" : track.Text.LastOrDefault().Type == TrackElementType.Verse ? "#06FA8E" : track.Text.LastOrDefault().Type == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
 			});
-			string style = "";
+			var style = "";
 
 			for (int i = 0; i < timeline.Count; i++)
 			{
@@ -256,6 +257,70 @@ namespace app.Controllers
 
 			style += $", {timeline[0].Color} 100%";
 			track.Timeline = style;
+
+
+
+
+
+
+
+			timeline = new List<SongTimeline>();
+			var repartitionLexicale = track.Text.GroupBy(x => x.Type).Select(g => new { Key = g.Key, Value = g.Sum(x => x.Percentage) }).OrderByDescending(x => x.Value).ToList();
+			alreadyTaken = 0.0;
+			timeline.Add(new SongTimeline()
+			{
+				Percentage = 0,
+				Color = repartitionLexicale.FirstOrDefault().Key == TrackElementType.Tune ? "#1B97FE" : repartitionLexicale.FirstOrDefault().Key == TrackElementType.Verse ? "#06FA8E" : repartitionLexicale.FirstOrDefault().Key == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
+			});
+			for (int i = 0; i < repartitionLexicale.Count; i++)
+				if (i == (repartitionLexicale.Count - 1))
+				{
+					timeline.Add(new SongTimeline()
+					{
+						Percentage = repartitionLexicale[i].Value + alreadyTaken,
+						Color = repartitionLexicale[i].Key == TrackElementType.Tune ? "#1B97FE" : repartitionLexicale[i].Key == TrackElementType.Verse ? "#06FA8E" : repartitionLexicale[i].Key == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
+					});
+					alreadyTaken += repartitionLexicale[i].Value;
+				}
+				else
+				{
+					timeline.Add(new SongTimeline()
+					{
+						Percentage = repartitionLexicale[i].Value + alreadyTaken,
+						Color = repartitionLexicale[i + 1].Key == TrackElementType.Tune ? "#1B97FE" : repartitionLexicale[i + 1].Key == TrackElementType.Verse ? "#06FA8E" : repartitionLexicale[i + 1].Key == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
+					});
+					timeline.Add(new SongTimeline()
+					{
+						Percentage = repartitionLexicale[i].Value + alreadyTaken,
+						Color = repartitionLexicale[i + 1].Key == TrackElementType.Tune ? "#1B97FE" : repartitionLexicale[i + 1].Key == TrackElementType.Verse ? "#06FA8E" : repartitionLexicale[i + 1].Key == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
+					});
+					alreadyTaken += repartitionLexicale[i].Value;
+				}
+			timeline.Add(new SongTimeline()
+			{
+				Percentage = 100,
+				Color = repartitionLexicale.LastOrDefault().Key == TrackElementType.Tune ? "#1B97FE" : repartitionLexicale.LastOrDefault().Key == TrackElementType.Verse ? "#06FA8E" : repartitionLexicale.LastOrDefault().Key == TrackElementType.Bridge ? "#78FCFF" : "#FF9425"
+			});
+			style = "";
+
+			for (int i = 0; i < timeline.Count; i++)
+			{
+				var color = timeline[i].Color;
+				var percentage = timeline[i].Percentage;
+				if (i == 0)
+				{
+					style += $"{color} 0%, {color} {percentage}%";
+				}
+				else
+				{
+					var prevColor = timeline[i - 1].Color;
+					var prevPercentage = timeline[i - 1].Percentage;
+					style += $", {prevColor} {percentage}%, {color} {percentage}%";
+				}
+			}
+
+			style += $", {timeline[0].Color} 100%";
+			track.Repartition = style;
 
 			return View(track);
 		}

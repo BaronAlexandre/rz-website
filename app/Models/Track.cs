@@ -8,5 +8,6 @@
 		public List<TrackElement> Text { get; set; }
 		public Album Album { get; set; }
 		public string Timeline { get; set; }
+		public string Repartition { get; set; }
 	}
 }
