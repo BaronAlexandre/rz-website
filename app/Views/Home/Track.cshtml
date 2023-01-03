@@ -1,5 +1,6 @@
 ﻿@using SpotifyAPI.Web
 @using System.Text.RegularExpressions
+@using app.Helpers;
 
 @model Track
 @{
@@ -12,7 +13,7 @@
 <section id="track">
 	@foreach (var item in Model.Text)
 	{
-		<section class="music-section @item.Type.ToString().ToLower()">
+		<section class="music-section @item.SongTimeline.Type.ToString().ToLower()-border">
 
 			<h2>@item.Title</h2>
 			@foreach (var line in item.Lines)
@@ -24,11 +25,26 @@
 </section>
 
 <h2>STRUCTURE LYRICALE @Model.Name</h2>
-<div><div style="--songTimeline : -webkit-linear-gradient(left, @Model.Timeline)" class="song-timeline"></div></div>
+<div class="song-timeline">
+	@foreach (var item in Model.Text)
+	{
+		<div style="width : @item.SongTimeline.Percentage%">
+			<div class="@item.SongTimeline.Type.ToString().ToLower()-bg"></div>
+		</div>
+	}
+</div>
 
 
 <h2>Répartition lyricale du track</h2>
-<div><div style="--songTimeline : -webkit-linear-gradient(left, @Model.Repartition)" class="song-timeline"></div></div>
+<div class="song-timeline">
+	@foreach (var item in Model.Repartition)
+	{
+		<div style="width : @item.Percentage%">
+			<p>@Helper.GetEnumDescription(item.Type)</p>
+			<div class="@item.Type.ToString().ToLower()-bg"><p>@item.Percentage%</p></div>
+		</div>
+	}
+</div>
 
 <h2>Répartition lyricale de l'album</h2>
 

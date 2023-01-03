@@ -7,13 +7,20 @@
 <section>
     <div>
         <h1 class="big">Album @Model.Name</h1>
-
+        <img src="@Model.Images.First().Url" class="album-pic">
+        <p>@Model.ReleaseDate</p>
+        <p>@Model.Tracks.Count morceaux</p>
         <ul class="albums-list">
-            @foreach (var track in Model.Tracks)
+            @for (int i = 0; i < Model.Tracks.Count; i++)
             {
                 <li>
-                    <p><a href="@Url.RouteUrl("Track", new { idArtist = Model.Artist.Id, idAlbum = Model.Id, idTrack = track.Id })">@track.Name - Paroles</a><i class="fa-solid fa-music"></i></p>
-                    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/@track.Id" width="50%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    <details>
+                        <summary><p><span>@i  </span><a href="@Url.RouteUrl("Track", new { idArtist = Model.Artist.Id, idAlbum = Model.Id, idTrack = Model.Tracks[i].Id })">@Model.Tracks[i].Name</a><span>Paroles</span></p></summary>
+                        <div>
+                            <p>250 mots</p>
+                            <p>5 BPM</p>
+                        </div>
+                    </details>
                 </li>
             }
         </ul>

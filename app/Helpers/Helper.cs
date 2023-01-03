@@ -1,5 +1,7 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
+using System.Drawing;
 using System.Globalization;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -61,6 +63,13 @@ namespace app.Helpers
 			}
 
 			return pairs;
+		}
+		public static string GetEnumDescription(this Enum value)
+		{
+			DescriptionAttribute attribute = value.GetType()
+				.GetField(value.ToString())
+				.GetCustomAttribute<DescriptionAttribute>();
+			return attribute == null ? value.ToString() : attribute.Description;
 		}
 	}
 }

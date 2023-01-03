@@ -4,7 +4,6 @@
 	{
 		public string Title { get; set; }
 		public List<string> Lines { get; set; }
-		public double Percentage { get; set; }
-		public TrackElementType Type { get; set; }
+		public SongTimeline SongTimeline { get; set; }
 	}
 }

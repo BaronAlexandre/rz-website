@@ -69,13 +69,114 @@
     flex-direction: column;
 }
 
-    .albums-list li {
-        margin: 2px 0;
+
+.song-timeline {
+    display: flex;
+    flex-direction: column;
+    margin: 2px 0;
+}
+
+.album-timeline > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+    .album-timeline > div > p {
+        margin-right: auto;
     }
 
-    .albums-list li > p {
-        margin: 10px 0;
+.song-timeline {
+    width: 80%;
+    height: 40px;
+    background: var(--songTimeline);
+}
+
+
+
+
+details[open] summary ~ * {
+    animation: sweep 0.3s ease-in-out;
+}
+
+
+details summary::-webkit-details-marker {
+    display: none;
+}
+@keyframes sweep {
+    0% {
+        opacity: 0;
+        margin-left: -50px
     }
+
+    100% {
+        opacity: 1;
+        margin-left: 0px
+    }
+}
+
+details summary {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    border-bottom: 2px solid #9E9FA0;
+}
+
+    details summary span {
+        color: #9E9FA0;
+    }
+@keyframes sweep {
+    0% {
+        opacity: 0;
+        margin-left: -10px
+    }
+
+    100% {
+        opacity: 1;
+        margin-left: 0px
+    }
+}
+
+        details summary span:first-child {
+            margin-right: 10px;
+        }
+
+        details summary span:last-child {
+            margin-left: 10px;
+        }
+
+    details summary:after {
+        content: "+";
+        color: #9E9FA0;
+        position: absolute;
+        line-height: 0;
+        margin-top: -0.75rem;
+        right: 0;
+        font-weight: 200;
+        transform-origin: center;
+        transition: 200ms linear;
+        font-size: 2rem;
+    }
+
+details[open] summary:after {
+    transform: rotate(90deg);
+    font-size: 2rem;
+}
+
+details summary {
+    outline: 0;
+    transition: 200ms linear;
+}
+
+details p {
+    margin: 0 0 1rem;
+    padding-top: 1rem;
+}
+
+
+
+
 
 
 
@@ -179,23 +280,9 @@ ul.cloud a:hover::before {
     }
 }
 
-.song-timeline {
-    display: flex;
-    flex-direction: column;
-    margin: 2px 0;
-}
 
-.album-timeline > div {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-    .album-timeline > div > p {
-        margin-right: auto;
-    }
 
-.song-timeline {
-    width: 80%;
-    height: 40px;
-    background: var(--songTimeline);
-}
+
+
+
+

@@ -17,6 +17,10 @@
       "PackagePath": "staticwebassets\\css\\track.css"
     },
     {
+      "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\img\\61ef31d97813c3de991d4a96_rz.svg",
+      "PackagePath": "staticwebassets\\img\\61ef31d97813c3de991d4a96_rz.svg"
+    },
+    {
       "Id": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\img\\bg.png",
       "PackagePath": "staticwebassets\\img\\bg.png"
     },

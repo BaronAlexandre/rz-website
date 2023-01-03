@@ -1,0 +1,67 @@
+.artist-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .artist-list li {
+        margin: 20px auto;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #202326;
+        text-align: center;
+        flex-direction: column;
+    }
+
+.artist-pic {
+    border-radius: 100%;
+    padding: 5px;
+    object-fit: cover;
+    width: 170px;
+    height: 170px;
+}
+
+h1 {
+    text-align: center;
+}
+
+header > img {
+    width: 100%;
+    opacity: 30%;
+    max-height: 1000px;
+}
+
+#search-form {
+    display: flex
+}
+
+header {
+    position: relative;
+    margin: -20px;
+}
+
+    header > i {
+        position: absolute;
+        top: 35%;
+        left: 10%;
+        font-size: 150%;
+        font-weight: bold;
+    }
+
+input[type=submit] {
+    background-color: #202326;
+    color: white;
+    margin: 0 10% 0 1%;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 10px;
+    margin: 0 1% 0 10%;
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+}

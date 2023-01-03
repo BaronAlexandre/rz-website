@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ovJUCa/3p/qDtoewZafCeC60fU8TRKSTuIZULzxPE1g=",
+  "Hash": "SK9Qvom9NWSzhI5Ij4W4M9JlcqXoinqAtPI7qzGsnFg=",
   "Source": "app",
   "BasePath": "_content/app",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\track.css"
+    },
+    {
+      "Identity": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\img\\61ef31d97813c3de991d4a96_rz.svg",
+      "SourceId": "app",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\",
+      "BasePath": "_content/app",
+      "RelativePath": "img/61ef31d97813c3de991d4a96_rz.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\61ef31d97813c3de991d4a96_rz.svg"
     },
     {
       "Identity": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\wwwroot\\img\\bg.png",
