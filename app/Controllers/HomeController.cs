@@ -70,7 +70,18 @@ namespace app.Controllers
 			var albumSimple = album.Artist.Albums.Items.FirstOrDefault(a => a.Id == idAlbum);
 			album.Name = albumSimple.Name;
 			album.Images = albumSimple.Images;
+			album.Artists = albumSimple.Artists;
+			album.ReleaseDate = albumSimple.ReleaseDate;
 
+            System.Net.WebRequest request = System.Net.WebRequest.Create(album.Images.Last().Url);
+            System.Net.WebResponse response = request.GetResponse();
+            System.IO.Stream responseStream =
+                response.GetResponseStream();
+            Bitmap bitmap = new Bitmap(responseStream);
+
+            ViewBag.ContainerBG = "background: linear-gradient(#" + Helper.GetMostUsedColor(bitmap).Name+ ", #12141D 10%);";
+
+			var test = Helper.GetMostUsedColor(bitmap);
             foreach (var t in album.Tracks)
 			{
 				var colors = new List<string> { "#0FF395", "#1F96FD", "#FB5794", "#F7D86A", "#78FCFF" };
@@ -174,9 +185,9 @@ namespace app.Controllers
 				response.GetResponseStream();
 			Bitmap bitmap = new Bitmap(responseStream);
 
-			var mostUsedColor = Helper.GetMostUsedColor(bitmap);
+            ViewBag.ContainerBG = "background: linear-gradient(#" + Helper.GetMostUsedColor(bitmap).Name + ", #12141D 10%);";
 
-			var songsfind = _genius.SearchClient.Search(track.Name + " by " + artist.Name).Result;
+            var songsfind = _genius.SearchClient.Search(track.Name + " by " + artist.Name).Result;
 			var songfindUrl = songsfind.Response.Hits.FirstOrDefault();
 			if (songfindUrl != null)
 			{

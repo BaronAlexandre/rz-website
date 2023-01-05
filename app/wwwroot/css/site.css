@@ -20,10 +20,9 @@ html {
     margin-bottom: 50px;
 }
 
-    .container > ul {
-        margin-right: 20%;
-        margin-left: 20%;
-    }
+.d-flex{
+    display: flex;
+}
 
 html {
     position: relative;

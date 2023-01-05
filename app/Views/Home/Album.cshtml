@@ -1,4 +1,5 @@
-﻿@{
+﻿@using System.Globalization;
+@{
     ViewData["Title"] = "Album";
     Random r = new Random();
 }
@@ -6,10 +7,37 @@
 
 <section>
     <div>
-        <h1 class="big">Album @Model.Name</h1>
-        <img src="@Model.Images.First().Url" class="album-pic">
-        <p>@Model.ReleaseDate</p>
-        <p>@Model.Tracks.Count morceaux</p>
+        <div class="d-flex">
+            <img src="@Model.Images.First().Url" class="album-pic">
+            <div>
+                <p>Album</p>
+                <h1>@Model.Name</h1>
+                <p>@Model.Artist.Name</p>
+                <p>Date de sortie</p>
+                <p>
+                    @{
+                        CultureInfo culture = new CultureInfo("fr-FR");
+                        DateTime date = DateTime.Parse(@Model.ReleaseDate);
+                        var dateString = date.ToString("dd MMMM yyyy", culture);
+                    }@dateString
+                </p>
+            </div>
+        </div>
+
+        <div class="d-flex">
+            <div>
+                <p>@Model.TotalTracks morceaux</p>
+                <p>@Model.Artists.Count featurings</p>
+                <p>% couplets</p>
+                <p>mots/son</p>
+            </div>
+            <div>
+                <p>durée moyenne</p>
+                <p>beatmakers</p>
+                <p>dB moyens</p>
+                <p>BPM moyens</p>
+            </div>
+        </div>
         <ul class="albums-list">
             @for (int i = 0; i < Model.Tracks.Count; i++)
             {
