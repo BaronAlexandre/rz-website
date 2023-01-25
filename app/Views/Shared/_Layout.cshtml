@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - app</title>
-    <link rel="icon" type="image/x-icon" href="~/img/logo.png">
+    <link rel="icon" type="image/x-icon" href="~/img/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
     @await RenderSectionAsync("Styles", required: false)
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -15,13 +15,13 @@
 <body>
     <nav class="navbar">
         <a class="left-link" href="@Url.RouteUrl("Home")"><i>RapMinerz</i></a>
-        <img src="~/img/logo.png" width="50" height="50" />
+        <img src="~/img/logo.png" />
         <div>
             <a class="right-link" href="#">Top artistes</a>
             <a class="right-link" href="@Url.RouteUrl("IndexLetters")">Atistes par lettres</a>
         </div>
     </nav>
-    <main role="main" style="@ViewBag.ContainerBG">
+    <main role="main" style="@ViewBag.MostUsedColor" class="pb-3">
         <section class="container">
             @RenderBody()
         </section>

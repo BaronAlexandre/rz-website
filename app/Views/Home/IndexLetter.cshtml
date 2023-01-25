@@ -28,7 +28,7 @@
                 <p class="big"><a href="@Url.RouteUrl("Artist", new { id = item.Id })">@item.Name</a></p>
 
                 <ul class="albums-list">
-                    @foreach (var album in item.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single").DistinctBy(a => a.Name))
+                    @foreach (var album in item.Albums.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single").DistinctBy(a => a.Name))
                     {
                         <li>
                             <p><a href="@Url.RouteUrl("Album", new { idArtist = item.Id, idAlbum = album.Id })">@album.Name</a> - @album.TotalTracks <i class="fa-solid fa-compact-disc"></i></p>

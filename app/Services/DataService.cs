@@ -6,7 +6,6 @@ namespace app.Services
     public class DataService : IDataService
     {
         public static List<SuperArtists> Artists { get; set; }
-        public static List<Album> Albums { get; set; }
         public static List<string> Labels { get; set; }
 
 
@@ -14,7 +13,6 @@ namespace app.Services
         {
             Artists = ReadFromJsonFile<List<SuperArtists>>("rappeursgm2.json");
             Artists.AddRange(ReadFromJsonFile<List<SuperArtists>>("rappeursgm3.json"));
-            Albums = ReadFromJsonFile<List<Album>>("tracks.json");
             Labels = ReadFromJsonFile<List<string>>("labels.json");
         }
 
@@ -70,6 +68,7 @@ namespace app.Services
 
         public static T ReadFromJsonFile<T>(string filePath) where T : new()
         {
+            Console.WriteLine(filePath);
             TextReader reader = null;
             try
             {

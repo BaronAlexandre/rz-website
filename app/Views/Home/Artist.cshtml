@@ -9,7 +9,7 @@
         <h1 class="big">Artiste @Model.Name</h1>
 
         <ul class="albums-list">
-            @foreach (var album in Model.Albums.Items.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single").DistinctBy(a => a.Name))
+            @foreach (var album in Model.Albums.OrderByDescending(a => a.ReleaseDate).Where(a => a.AlbumGroup != "appears_on" && a.AlbumGroup != "single").DistinctBy(a => a.Name))
             {
                 <li>
                     <p><a href="@Url.RouteUrl("Album", new { idArtist = Model.Id, idAlbum = album.Id })">@album.Name</a> - @album.TotalTracks <i class="fa-solid fa-album"></i></p>

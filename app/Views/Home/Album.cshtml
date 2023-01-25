@@ -5,22 +5,16 @@
 }
 @model Album
 
-<section>
+<div class="d-flex">
     <div>
-        <div class="d-flex">
+        <div class="d-flex" id="album-head">
             <img src="@Model.Images.First().Url" class="album-pic">
             <div>
                 <p>Album</p>
-                <h1>@Model.Name</h1>
-                <p>@Model.Artist.Name</p>
+                <h1 class="big">@Model.Name</h1>
+                <h2 class="big">@Model.Artist.Name</h2>
                 <p>Date de sortie</p>
-                <p>
-                    @{
-                        CultureInfo culture = new CultureInfo("fr-FR");
-                        DateTime date = DateTime.Parse(@Model.ReleaseDate);
-                        var dateString = date.ToString("dd MMMM yyyy", culture);
-                    }@dateString
-                </p>
+                <p>@DateTime.ParseExact(@Model.ReleaseDate, "yyyy-MM-dd", CultureInfo.InvariantCulture).ToString("dd MMMM yyyy", CultureInfo.CreateSpecificCulture("fr-FR"))</p>
             </div>
         </div>
 
@@ -38,21 +32,25 @@
                 <p>BPM moyens</p>
             </div>
         </div>
-        <ul class="albums-list">
-            @for (int i = 0; i < Model.Tracks.Count; i++)
-            {
-                <li>
-                    <details>
-                        <summary><p><span>@i  </span><a href="@Url.RouteUrl("Track", new { idArtist = Model.Artist.Id, idAlbum = Model.Id, idTrack = Model.Tracks[i].Id })">@Model.Tracks[i].Name</a><span>Paroles</span></p></summary>
-                        <div>
-                            <p>250 mots</p>
-                            <p>5 BPM</p>
-                        </div>
-                    </details>
-                </li>
-            }
-        </ul>
     </div>
+</div>
+
+<section>
+    <h2>TRACKLIST @Model.Name</h2>
+    <ul class="albums-list">
+        @for (int i = 0; i < Model.Tracks.Count; i++)
+        {
+            <li>
+                <details>
+                    <summary><p><span>@i  </span><a href="@Url.RouteUrl("Track", new { idArtist = Model.Artist.Id, idAlbum = Model.Id, idTrack = Model.Tracks[i].Id })">@Model.Tracks[i].Name</a><span>Paroles</span></p></summary>
+                    <div>
+                        <p>250 mots</p>
+                        <p>5 BPM</p>
+                    </div>
+                </details>
+            </li>
+        }
+    </ul>
 </section>
 
 <section>

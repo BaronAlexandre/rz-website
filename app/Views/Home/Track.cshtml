@@ -11,7 +11,7 @@
 <h1>Paroles @Model.Name</h1>
 
 <section id="track">
-	@foreach (var item in Model.Text)
+	@foreach (var item in Model.TextItem)
 	{
 		<section class="music-section @item.SongTimeline.Type.ToString().ToLower()-border">
 
@@ -26,7 +26,7 @@
 
 <h2>STRUCTURE LYRICALE @Model.Name</h2>
 <div class="song-timeline">
-	@foreach (var item in Model.Text)
+	@foreach (var item in Model.TextItem)
 	{
 		<div style="width : @item.SongTimeline.Percentage%">
 			<div class="@item.SongTimeline.Type.ToString().ToLower()-bg"></div>

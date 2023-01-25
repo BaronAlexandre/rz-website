@@ -4670,19 +4670,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Alexandre\\.nuget\\packages\\": {}
+    "C:\\Users\\abaron\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\app.csproj",
+      "projectUniqueName": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\app.csproj",
       "projectName": "app",
-      "projectPath": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\app.csproj",
-      "packagesPath": "C:\\Users\\Alexandre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alexandre\\Documents\\Developpement\\Projets\\rz-website\\app\\obj\\",
+      "projectPath": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\app.csproj",
+      "packagesPath": "C:\\Users\\abaron\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\abaron\\Documents\\Perso\\music\\rz-website\\rz-website\\app\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Alexandre\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\abaron\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4690,7 +4690,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nexus.hellowork.com:8443/repository/nuget-hosted/": {}
       },
       "frameworks": {
         "net6.0": {
